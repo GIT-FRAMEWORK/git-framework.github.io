@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://git-framework.github.io/sitemap.xml

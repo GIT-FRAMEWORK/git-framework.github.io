@@ -3,241 +3,209 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Transition Information Geometry (GIT)</title>
+
+<!-- ============ SEO: title + description ============ -->
+<title>The Unwinding Spiral — a parameter-free informational root for the Standard Model, gravity and cosmology</title>
+<meta name="description" content="An open collection of physics papers deriving the Standard Model gauge group, lepton mass ratios and mixing angles, colour confinement, dark energy w(z), and galaxy rotation without dark matter — from two integers, with no fitted parameter. Each result is reproducible by a self-contained program.">
+<meta name="author" content="Rui Pedro Rodrigues Salomé">
+<meta name="keywords" content="parameter-free derivation of the Standard Model, informational root of physics, colour confinement Born prohibition, neutrino mixing angles from geometry, Koide relation derivation, dark energy equation of state w greater than minus one, galaxy rotation curves without dark matter, emergent spacetime from information, falsifiable unification, cosmic birefringence sign, baryon asymmetry sign, Yang-Mills mass gap structural, electroweak scale from two integers, Tully-Fisher derived, theta_23 theta_13 relation">
+<link rel="canonical" href="https://git-framework.github.io/">
+<meta name="robots" content="index, follow">
+
+<!-- ============ Open Graph / social preview ============ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Unwinding Spiral — a parameter-free informational root for physics">
+<meta property="og:description" content="Deriving the Standard Model structure, neutrino mixing angles, colour confinement, dark energy and galaxy rotation from two integers, with no fitted parameter. Every number reproducible by a self-contained program.">
+<meta property="og:url" content="https://git-framework.github.io/">
+<meta property="og:site_name" content="The Unwinding Spiral">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Unwinding Spiral — a parameter-free informational root for physics">
+<meta name="twitter:description" content="The Standard Model, gravity and cosmology from two integers, with no fitted parameter. Every number reproducible.">
+
+<!-- ============ Structured data (helps search engines understand the collection) ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "The Unwinding Spiral",
+  "alternateName": "Transition Information Geometry (GIT)",
+  "description": "An open collection of physics papers deriving the Standard Model, gravity and cosmology from a single parameter-free informational root.",
+  "url": "https://git-framework.github.io/",
+  "author": {
+    "@type": "Person",
+    "name": "Rui Pedro Rodrigues Salomé",
+    "identifier": "https://orcid.org/0009-0006-9892-9601"
+  },
+  "about": [
+    "theoretical physics",
+    "foundations of physics",
+    "Standard Model of particle physics",
+    "emergent gravity",
+    "dark energy",
+    "colour confinement",
+    "neutrino mixing angles",
+    "falsifiable unification"
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --bg:#fbfaf7; --fg:#1c1b19; --muted:#6a675f; --faint:#8a877e;
-    --line:#e6e3db; --line-soft:#efece5;
-    --link:#1a4f8a; --card:#f4f1ea; --card-line:#e0dccf;
-    --serif:'Spectral',Georgia,'Times New Roman',serif;
-    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    --maxw:720px;
+:root{
+  box-sizing:border-box;
+  --bg:#fbfbf9; --fg:#1a1a1a; --muted:#5a5a5a; --line:#e2e0da;
+  --accent:#2d4a7c; --pill:#eef1f6; --pill-fg:#2d4a7c;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#15161a; --fg:#e8e6e1; --muted:#9a988f; --line:#2c2e35;
+    --accent:#8fb0e6; --pill:#20242e; --pill-fg:#8fb0e6;
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#14151a; --fg:#e9e7e2; --muted:#a3a099; --faint:#7f7c74;
-      --line:#2a2c34; --line-soft:#22242b;
-      --link:#8fbcf0; --card:#1b1d25; --card-line:#2f323c;
-    }
-  }
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
-  body{
-    margin:0; background:var(--bg); color:var(--fg);
-    font-family:var(--serif); font-size:18px; line-height:1.72;
-    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0);
-  }
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:4.5rem 1.5rem 5rem;}
-  header{margin-bottom:3rem;}
-  .kicker{font-family:var(--sans); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
-          color:var(--faint); margin:0 0 1.1rem;}
-  h1{font-family:var(--serif); font-weight:600; font-size:2.35rem; line-height:1.15;
-     letter-spacing:-.015em; margin:0 0 .7rem;}
-  .sub{font-family:var(--serif); font-style:italic; color:var(--muted);
-       font-size:1.18rem; margin:0; font-weight:400;}
-  .author{font-family:var(--sans); color:var(--muted); font-size:.86rem; line-height:1.6;
-          margin-top:1.8rem; padding-top:1.4rem; border-top:1px solid var(--line);}
-  .author a{color:var(--link); text-decoration:none; border-bottom:1px solid transparent;}
-  .author a:hover{border-bottom-color:var(--link);}
-  .intro{margin:0 0 3.5rem; font-size:1.06rem;}
-  .intro p{margin:0 0 1.15rem;}
-  .intro .lead{font-size:1.2rem; line-height:1.6; color:var(--fg);}
-  .intro em{font-style:italic;}
-  .note{font-family:var(--sans); font-size:.88rem; line-height:1.65; color:var(--muted);
-        background:var(--card); border:1px solid var(--card-line); border-radius:8px;
-        padding:1rem 1.15rem; margin-top:1.8rem;}
-  .sec-h{font-family:var(--sans); font-size:.74rem; text-transform:uppercase; letter-spacing:.18em;
-     color:var(--faint); font-weight:600; margin:0 0 .3rem;}
-  .sec-rule{height:1px; background:var(--line); border:0; margin:0 0 2.2rem;}
-  ol.papers{list-style:none; margin:0; padding:0; counter-reset:p;}
-  ol.papers li{
-    counter-increment:p; position:relative;
-    padding:1.5rem 0 1.5rem 3rem; border-bottom:1px solid var(--line-soft);
-  }
-  ol.papers li:last-child{border-bottom:0;}
-  ol.papers li::before{
-    content:counter(p,decimal-leading-zero); position:absolute; left:0; top:1.75rem;
-    font-family:var(--sans); font-variant-numeric:tabular-nums;
-    font-size:.78rem; color:var(--faint); width:2rem; text-align:left; letter-spacing:.02em;
-  }
-  .ptitle{font-family:var(--serif); font-weight:600; font-size:1.15rem; line-height:1.35;
-          margin:0 0 .4rem; letter-spacing:-.005em;}
-  .pdesc{font-family:var(--serif); color:var(--muted); font-size:1rem; line-height:1.62; margin:0 0 .7rem;}
-  .doi{display:inline-flex; align-items:center; gap:.45rem; font-family:var(--sans);
-       font-size:.8rem; color:var(--link); text-decoration:none;
-       border:1px solid var(--line); border-radius:999px; padding:.2rem .7rem .22rem;
-       transition:border-color .15s, background .15s;}
-  .doi:hover{border-color:var(--link); background:var(--card);}
-  li.root{
-    background:var(--card); border:1px solid var(--card-line); border-radius:10px;
-    margin:0 -1.15rem 1.4rem; padding:1.7rem 1.4rem 1.7rem 3.2rem;
-  }
-  li.root::before{left:1.4rem; top:1.95rem; color:var(--link); font-weight:600;}
-  li.root .ptitle{font-size:1.22rem;}
-  .tag{display:inline-block; font-family:var(--sans); font-size:.62rem; text-transform:uppercase;
-       letter-spacing:.14em; color:var(--bg); background:var(--link); border-radius:4px;
-       padding:.12rem .5rem; margin-left:.6rem; vertical-align:middle; font-weight:600;}
-  footer{margin-top:3.5rem; padding-top:1.8rem; border-top:1px solid var(--line);
-         font-family:var(--sans); color:var(--muted); font-size:.86rem; line-height:1.7;}
-  footer a{color:var(--link); text-decoration:none; border-bottom:1px solid transparent;}
-  footer a:hover{border-bottom-color:var(--link);}
-  footer p{margin:.2rem 0;}
-  @media (max-width:520px){
-    .wrap{padding:3rem 1.15rem 3.5rem;}
-    h1{font-size:1.95rem;} body{font-size:17px;}
-    li.root{margin-left:-.9rem; margin-right:-.9rem;}
-  }
+}
+:root[data-theme="dark"]{
+  --bg:#15161a; --fg:#e8e6e1; --muted:#9a988f; --line:#2c2e35;
+  --accent:#8fb0e6; --pill:#20242e; --pill-fg:#8fb0e6;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:"Spectral",Georgia,serif; font-size:1.06rem; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:46rem; margin:0 auto; padding:3.2rem 1.4rem 5rem}
+h1{font-size:2.15rem; line-height:1.15; font-weight:600; margin:0 0 .4rem}
+.sub{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:1.02rem; color:var(--muted); font-weight:400; margin:0 0 .2rem}
+.author{font-family:"IBM Plex Sans",sans-serif; font-size:.9rem; color:var(--muted); margin:1.1rem 0 0}
+.author a{color:var(--accent); text-decoration:none}
+.lead{margin:2.2rem 0 1.4rem}
+.note{font-family:"IBM Plex Sans",sans-serif; font-size:.86rem; color:var(--muted); background:var(--pill); border:1px solid var(--line); border-radius:.5rem; padding:.9rem 1rem; margin:1.6rem 0 2.4rem; line-height:1.55}
+h2{font-family:"IBM Plex Sans",sans-serif; font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:600; margin:2.8rem 0 1.2rem; padding-bottom:.4rem; border-bottom:1px solid var(--line)}
+.paper{margin:0 0 1.7rem; padding:0}
+.paper .t{font-weight:600; font-size:1.12rem; display:block; margin-bottom:.15rem}
+.paper .root-tag{font-family:"IBM Plex Sans",sans-serif; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--pill-fg); background:var(--pill); border:1px solid var(--line); border-radius:1rem; padding:.1rem .55rem; margin-left:.5rem; vertical-align:middle; font-weight:600}
+.paper .d{font-family:"IBM Plex Sans",sans-serif; font-size:.92rem; color:var(--muted); margin:.2rem 0 .4rem; line-height:1.5}
+.doi{font-family:"IBM Plex Sans",sans-serif; font-size:.8rem}
+.doi a{display:inline-block; color:var(--pill-fg); background:var(--pill); border:1px solid var(--line); border-radius:.4rem; padding:.12rem .5rem; text-decoration:none}
+.doi a:hover{border-color:var(--accent)}
+footer{margin-top:3.5rem; padding-top:1.4rem; border-top:1px solid var(--line); font-family:"IBM Plex Sans",sans-serif; font-size:.82rem; color:var(--muted); line-height:1.6}
+footer a{color:var(--accent); text-decoration:none}
+code{font-family:"IBM Plex Mono","SF Mono",Menlo,monospace; font-size:.85em; background:var(--pill); padding:.1rem .35rem; border-radius:.3rem}
 </style>
 </head>
 <body>
-<div class="wrap">
+<main class="wrap">
 
-<header>
-  <p class="kicker">Geometria da Informação de Transição</p>
-  <h1>Transition Information Geometry</h1>
-  <p class="sub">A physics derived from a single premise, with no adjustable input.</p>
-  <p class="author">Rui Pedro Rodrigues Salomé &nbsp;·&nbsp; Independent researcher, Portugal<br>
-     ORCID <a href="https://orcid.org/0009-0006-9892-9601">0009-0006-9892-9601</a></p>
-</header>
+<h1>The Unwinding Spiral</h1>
+<p class="sub">A parameter-free informational root for the Standard Model, gravity, and cosmology</p>
+<p class="author">Rui Pedro Rodrigues Salomé · <a href="https://orcid.org/0009-0006-9892-9601">ORCID 0009-0006-9892-9601</a></p>
 
-<section class="intro">
-  <p class="lead">The framework begins from one premise &mdash; <em>distinction</em>, that one state
-  differ from another &mdash; and asks what follows if nothing else is put in by hand.</p>
+<div class="lead">
+<p>This is an open collection of papers developing a single construction: a two-dimensional informational grain that unwinds along a logarithmic spiral and is projected into <code>3+1</code> physics by one fixed step. From <strong>two integers, with no fitted parameter</strong>, the construction returns the gauge group of the Standard Model, three colours, three generations, the electric charges, the charged-lepton mass ratios, and the leptonic mixing angles; and at the other end of the same spectrum, the dark-energy equation of state, flat galaxy rotation curves without dark matter, and colour confinement as an exact prohibition.</p>
 
-  <p>From that single starting point it derives a chain of structures: a complex amplitude, a
-  resonant cavity, a spectrum of stopping points, and from these the particle content, the
-  mixing angles, the gauge group, and a reading of several cosmological quantities. The
-  construction carries no adjustable parameter; it rests on one dimensionless constant, itself
-  an output rather than an input.</p>
+<p>The aim is not familiarity but reproducibility. <strong>Every number quoted is computed by a self-contained program</strong> that takes the two integers and prints each result beside its measured value; it runs in under a minute and needs only <code>numpy</code> and <code>sympy</code>. Where a result is recovered from established work rather than derived here, it is marked as such and the priority is named.</p>
+</div>
 
-  <p>Every quantity is traceable to the construction, and every claim is marked for what it is:
-  a <em>recovery</em> of something already known, or a <em>prediction</em> the construction
-  risks. Where a result requires an external ruler, that is stated rather than hidden.</p>
+<div class="note">
+These are preprints, deposited on Zenodo with DOIs and dates; they have not been peer-reviewed. What is claimed for them is internal coherence and external verifiability, not the authority of a journal. The reader is invited to run the program and check.
+</div>
 
-  <p>The papers below are the work as it stands, in reading order. The first is the root; each
-  that follows leans on the ones before it. They are offered openly &mdash; to read, to check, to refute.</p>
+<h2>Read in this order</h2>
+<p class="sub" style="margin-bottom:1.8rem">The root comes first: the later results only make sense once the generator that produces them is in view.</p>
 
-  <p class="note">These are preprints, deposited on Zenodo with a public timestamp; none has yet
-  been through journal peer review. What is claimed for them is coherence and verifiability, not
-  endorsement. The reader is invited to judge.</p>
-</section>
+<div class="paper">
+  <span class="t">An informational root for spacetime, the Standard Model and cosmology<span class="root-tag">root</span></span>
+  <p class="d">The trunk. The unwinding spiral, the 2D→3D transposition, and the single constant from which the Standard Model structure, the lepton sector, dark energy and galactic rotation are read. Contains the reproduction program.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.22850919">doi.org/10.5281/zenodo.22850919</a></p>
+</div>
 
-<p class="sec-h">The papers &middot; in reading order</p>
-<hr class="sec-rule">
+<div class="paper">
+  <span class="t">Dimension from distinction: the holographic nature of a universe built on the minimal difference</span>
+  <p class="d">The foundational layer: why the arena is two-dimensional, derived from the distinction rather than assumed. Where the holographic area law comes from.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.22956730">doi.org/10.5281/zenodo.22956730</a></p>
+</div>
 
-<ol class="papers">
+<div class="paper">
+  <span class="t">The nine-dimensional object: generations, colour, gravity, and the electroweak mixing angle from a single informational root</span>
+  <p class="d">How three generations, three colours and the weak mixing angle come out of one nine-object, with the number of colours fixed by the anomaly.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.20922077">doi.org/10.5281/zenodo.20922077</a></p>
+</div>
 
-  <li class="root">
-    <p class="ptitle">An informational root for spacetime, the Standard Model and cosmology<span class="tag">root</span></p>
-    <p class="pdesc">The trunk. Starts from distinction and the single generator and lays out the whole
-      construction &mdash; the unwinding spiral, the 2D&rarr;3D transposition, and the chain from the informational
-      root to physical structure. Everything else leans on this.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.22850919">10.5281/zenodo.22850919 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The single structure and its angles: geometry without inputs</span>
+  <p class="d">The object read for its angles — the mixing structure of the lepton sector as pure geometry, with no measured input.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.21099441">doi.org/10.5281/zenodo.21099441</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">Dimension from Distinction: the holographic nature of a universe built on the minimal difference</p>
-    <p class="pdesc">Why two dimensions, and not by assumption. An oriented distinction forces a
-      two-dimensional sheet whose surface carries one bit &mdash; holography derived, not postulated.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.22956730">10.5281/zenodo.22956730 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The leptonic mixing angles as the orientation of a rigid tetrahedral grain</span>
+  <p class="d">The PMNS neutrino mixing angles derived as the orientation of a rigid grain, with the sharp discriminant θ₂₃ − 45° = ½ θ₁₃ between measured angles.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.22955919">doi.org/10.5281/zenodo.22955919</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">The nine-dimensional object: generations, colour, gravity, and the electroweak mixing angle from a single informational root</p>
-    <p class="pdesc">The 3&times;3 object at the heart of the construction. From it fall the three generations,
-      the colour structure, the gravitational sector and the electroweak mixing angle &mdash; one object, read several ways.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.20922077">10.5281/zenodo.20922077 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">Neutrinos as the fixed-point sector</span>
+  <p class="d">The neutrino sector as the fixed point of the construction, and the three tied signs — the leptonic CP phase, the cosmic birefringence, and the baryon asymmetry — from one arrow.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.21392864">doi.org/10.5281/zenodo.21392864</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">The scalar (Galileon) sector of the unwinding spiral</p>
-    <p class="pdesc">The scalar sector the construction produces, with its functions fixed by the structure
-      rather than left free to adjust.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.20709541">10.5281/zenodo.20709541 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">Colour confinement as an exact Born prohibition</span>
+  <p class="d">Why bare colour is never observed: the amplitude of a non-singlet colour state is exactly zero at N_c = 3, a prohibition rather than an energy barrier. Exact, with no large-N limit.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.21428475">doi.org/10.5281/zenodo.21428475</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">Colour Confinement as an Exact Born Prohibition</p>
-    <p class="pdesc">Confinement read as a prohibition, not a barrier: colour non-singlet states carry
-      exactly vanishing amplitude &mdash; an exact zero at three colours, with no large-N limit.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.21428475">10.5281/zenodo.21428475 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The thermodynamic cost of reading one bit</span>
+  <p class="d">The reading entropy x(1−x) from the modular Hamiltonian, and why reading a bit costs more than erasing it — a corollary of the informational root, verifiable on its own.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.20731441">doi.org/10.5281/zenodo.20731441</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">The thermodynamic cost of reading a bit: a corollary of the informational root (GIT)</p>
-    <p class="pdesc">The cost of a single measurement, derived from the modular Hamiltonian by routes
-      that stand on their own &mdash; verifiable independently of the wider framework.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.20731441">10.5281/zenodo.20731441 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The regime difference: the mass gap and dark matter as one structure read at two scales</span>
+  <p class="d">The Abelian/non-Abelian distinction as the discriminant that ties the Yang-Mills mass gap and dark matter together as one structure.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.22957038">doi.org/10.5281/zenodo.22957038</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">Neutrinos as the fixed-point sector</p>
-    <p class="pdesc">Why the lightest fermions mix the most, and why their mixing is read with a derived
-      variance. Neutrinos as the near-fixed-point sector of the unwinding, with a graded falsification test.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.21392864">10.5281/zenodo.21392864 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The spectrum of stopping points: matter, dark matter, and celestial bodies from an informational root</span>
+  <p class="d">Why matter stops where it does — the spectrum of stopping points that fixes the scales of celestial bodies and the dark-to-baryonic ratio.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.22956384">doi.org/10.5281/zenodo.22956384</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">The single structure and its angles: geometry without inputs</p>
-    <p class="pdesc">The object side in full: the grain (a tetrahedron), the fixed point at 45&deg;, and the
-      closed repertoire of angles the structure permits &mdash; the geometry from which the observed angles are read.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.21099441">10.5281/zenodo.21099441 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The resonant holographic cavity</span>
+  <p class="d">The shape of the unwinding read as a closed resonant cavity whose spectrum is the particle content.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.22958563">doi.org/10.5281/zenodo.22958563</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">The leptonic mixing angles as the orientation of a rigid tetrahedral grain</p>
-    <p class="pdesc">The focused result on neutrino mixing: the three PMNS angles as the orientation of one
-      rigid body, giving the parameter-free relation &theta;<sub>23</sub> &minus; 45&deg; = &frac12;&thinsp;&theta;<sub>13</sub>.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.22955919">10.5281/zenodo.22955919 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The Yang-Mills construction</span>
+  <p class="d">A structural account of the Yang-Mills mass gap within the construction — stated plainly as a structural account, not the millennium-problem proof.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.22958860">doi.org/10.5281/zenodo.22958860</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">The spectrum of stopping points: matter, dark matter, and celestial bodies from an informational root</p>
-    <p class="pdesc">The celestial bodies as a spectrum of stopping points read at different positions;
-      dark matter as phaseless modulus, the rotation curve without a halo, and antimatter as the conjugate side.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.22956384">10.5281/zenodo.22956384 &nearr;</a>
-  </li>
+<div class="paper">
+  <span class="t">The scalar-tensor branch (TAG): dark energy and the galactic pitch</span>
+  <p class="d">The gravitational sector: the equation of state w > −1 in every epoch, the running of G, and the galactic pitch — each a falsifiable prediction with an experimental address.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.20827081">doi.org/10.5281/zenodo.20827081</a></p>
+</div>
 
-  <li>
-    <p class="ptitle">The regime difference: the mass gap and dark matter as one structure read at two scales</p>
-    <p class="pdesc">One operation read twice: the Yang&ndash;Mills mass gap and the dark-to-ordinary matter ratio
-      as the same abelian/non-abelian regime difference, dressed at two positions.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.22957038">10.5281/zenodo.22957038 &nearr;</a>
-  </li>
-
-  <li>
-    <p class="ptitle">A Resonant Cavity from Oriented Distinction: particle spectrum, mixing angles, and gauge structure as cavity modes</p>
-    <p class="pdesc">The whole elementary content read as the modes of one closed resonant cavity &mdash; the
-      spectrum, the angles, and the gauge group SU(3)&times;SU(2)&times;U(1), each a property of the cavity.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.22958563">10.5281/zenodo.22958563 &nearr;</a>
-  </li>
-
-  <li>
-    <p class="ptitle">Quantum Yang&ndash;Mills and the Wightman axioms within the GIT framework</p>
-    <p class="pdesc">What a finite object delivers toward the Yang&ndash;Mills problem, and where it parts from it:
-      a proved gap for the finite object, confinement as a holonomy, and an honest account of what is and is not shown.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.22958860">10.5281/zenodo.22958860 &nearr;</a>
-  </li>
-
-  <li>
-    <p class="ptitle">TAG &mdash; the scalar&ndash;tensor branch: cosmological dynamics of the framework</p>
-    <p class="pdesc">The dynamical branch: an equation of motion for the cosmos in which the Galileon falls
-      out with fixed functions, offering a reading of structure growth and the galactic rotation curve.</p>
-    <a class="doi" href="https://doi.org/10.5281/zenodo.20827081">10.5281/zenodo.20827081 &nearr;</a>
-  </li>
-
-</ol>
+<div class="paper">
+  <span class="t">The Galileon scalar sector</span>
+  <p class="d">The derivative sector of the action and its Horndeski map, with the object/ruler diagnostic that fixes which terms survive.</p>
+  <p class="doi"><a href="https://doi.org/10.5281/zenodo.20709541">doi.org/10.5281/zenodo.20709541</a></p>
+</div>
 
 <footer>
-  <p>All papers are openly available on Zenodo under CC BY&nbsp;4.0. Comments and criticism are welcome.</p>
-  <p>Rui Pedro Rodrigues Salom&eacute; &nbsp;&middot;&nbsp;
-     <a href="https://orcid.org/0009-0006-9892-9601">ORCID 0009-0006-9892-9601</a></p>
+<p><strong>What this collection argues, in one line:</strong> that the structure of the Standard Model, the value of the dark-energy equation of state, the mixing angles of the neutrinos, and the confinement of colour are not independent facts but readings of one object at different scales — and that this can be checked, number by number, by running a program.</p>
+<p>All papers are archived on <a href="https://zenodo.org/search?q=Salom%C3%A9%20informational%20root">Zenodo</a> with permanent DOIs. Author: Rui Pedro Rodrigues Salomé, independent researcher, Portugal · <a href="https://orcid.org/0009-0006-9892-9601">ORCID</a>.</p>
 </footer>
 
-</div>
+</main>
 </body>
 </html>
